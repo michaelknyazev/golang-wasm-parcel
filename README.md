@@ -6,6 +6,11 @@ Example WASM project written in Go and bundled with parcel.
 2) run `make dev`
 3) Project will be available at `http://localhost:1234`
 
+## Run it in production:
+1) Clone project
+2) run `make serve`
+3) Project will be available at `http://localhost:3000` (as running container)
+
 ## Result
 ![Preview](https://github.com/michaelknyazev/golang-wasm-parcel/blob/master/preview.gif?raw=true)
 
