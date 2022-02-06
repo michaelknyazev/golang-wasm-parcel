@@ -15,10 +15,10 @@ const (
 	screenWidth  = 320
 	screenHeight = 320
 
-	frameWidth  = 65
-	frameHeight = 65
+	frameWidth  = 64
+	frameHeight = 64
 
-	speed = 10
+	speed = 5
 )
 
 var (
@@ -44,6 +44,14 @@ func (g *Game) Update() error {
 	if _keyMoveUp {
 		g.posY -= speed
 
+		if g.stanceY == 4 && g.stanceX == 0 {
+			g.stanceX = 1
+		} else {
+			g.stanceX = 0
+		}
+
+		g.stanceY = 4
+
 		if g.posY <= 0 {
 			g.posY = 0
 		}
@@ -51,6 +59,14 @@ func (g *Game) Update() error {
 
 	if _keyMoveDown {
 		g.posY += speed
+
+		if g.stanceY == 10 && g.stanceX == 0 {
+			g.stanceX = 2
+		} else {
+			g.stanceX = 0
+		}
+
+		g.stanceY = 10
 
 		if g.posY >= screenHeight {
 			g.posY = screenHeight
@@ -60,6 +76,14 @@ func (g *Game) Update() error {
 	if _keyMoveLeft {
 		g.posX -= speed
 
+		if g.stanceY == 9 && g.stanceX == 0 {
+			g.stanceX = 1
+		} else {
+			g.stanceX = 0
+		}
+
+		g.stanceY = 9
+
 		if g.posX <= 0 {
 			g.posX = 0
 		}
@@ -67,6 +91,14 @@ func (g *Game) Update() error {
 
 	if _keyMoveRight {
 		g.posX += speed
+
+		if g.stanceY == 11 && g.stanceX == 0 {
+			g.stanceX = 1
+		} else {
+			g.stanceX = 0
+		}
+
+		g.stanceY = 11
 
 		if g.posX >= screenWidth {
 			g.posX = screenWidth
