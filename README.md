@@ -17,6 +17,11 @@ Example WASM project written in Go and bundled with parcel.
 3) Project will be available at `http://localhost:3000` (as running container)
 
 ## Result
+
+WASD controlled character, moving on screen.
+
 ![Preview](https://github.com/michaelknyazev/golang-wasm-parcel/blob/master/preview.gif?raw=true)
 
+
+Built with [ebiten (v2)](https://github.com/hajimehoshi/ebiten).
 
