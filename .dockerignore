@@ -1,0 +1,6 @@
+.parcel-cache
+dist
+.git
+.gitignore
+Makefile
+*.wasm
