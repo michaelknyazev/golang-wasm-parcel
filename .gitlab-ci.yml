@@ -16,7 +16,8 @@ bundle:
   image: node:alpine
   stage: bundle
   script:
-    - apk add make  
+    - apk add make
+    - npm i -g parcel  
     - make bundle
   artifacts:
     paths:
