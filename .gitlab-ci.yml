@@ -1,35 +1,13 @@
 stages:
-  - build
-  - bundle
-  - deploy
+  - build_image
 
 build:
-  image: golang:1.17
-  stage: build
-  script:
-    - make compile
-  artifacts:
-    paths:
-      - public/game.wasm
-
-bundle:
-  image: node:alpine
-  stage: bundle
-  script:
-    - apk add make
-    - npm i -g parcel  
-    - make bundle
-  artifacts:
-    paths:
-      - public
-
-deploy:
   image: docker:git
-  stage: deploy
+  stage: build_image
   services: 
     - docker:dind
   script:
     - docker login -u $CI_REGISTRY_USER -p $CI_BUILD_TOKEN $CI_REGISTRY
     - docker build -t $CI_REGISTRY_IMAGE .
-    - docker tag $CI_REGISTRY_IMAGE
+    - docker tag $CI_REGISTRY_IMAGE $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
     - docker push $CI_REGISTRY
