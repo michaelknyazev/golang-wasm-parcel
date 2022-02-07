@@ -15,7 +15,9 @@ build:
 bundle:
   image: node:alpine
   stage: bundle
-  script: make build
+  script:
+    - apk add make  
+    - make bundle
   artifacts:
     paths:
       - public
